@@ -7,4 +7,12 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
+.venv/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local ChromaDB runtime data
+chroma_db/
