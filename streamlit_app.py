@@ -9,7 +9,7 @@ import streamlit as st
 # ============================================================
 
 st.set_page_config(
-    page_title="HR & Billing Document RAG Dashboard",
+    page_title="RAG Dashboard: Gemini + ColPali + ChromaDB + LangGraph",
     page_icon="🤖",
     layout="wide",
 )
@@ -92,10 +92,10 @@ def initialize_rag():
 # HEADER
 # ============================================================
 
-st.title("🤖 HR & Billing Document RAG Dashboard")
+st.title("🤖 RAG Dashboard: Gemini + ColPali + ChromaDB + LangGraph")
 st.caption(
-    "Gemini + ChromaDB + LangGraph with a lightweight "
-    "ColPali-ready document POC"
+    "HR and billing document assistant with a lightweight "
+    "ColPali-ready image document POC"
 )
 
 
