@@ -13,12 +13,22 @@ User
   -> Answer
 ```
 
+## Local setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+export GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
+streamlit run streamlit_app.py
+```
+
 ## Local setup with uv
 
 ```bash
 uv sync
 export GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
-uv run streamlit run app.py
+uv run streamlit run streamlit_app.py
 ```
 
 ## Replit setup
@@ -30,7 +40,7 @@ uv run streamlit run app.py
 ```bash
 uv lock
 uv sync
-uv run streamlit run app.py --server.address 0.0.0.0 --server.port $PORT
+uv run streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port $PORT
 ```
 
 The repository contains a `.replit` file with the Streamlit run command, so Replit can use the Run button after dependencies are synchronized.
@@ -45,3 +55,5 @@ The repository contains a `.replit` file with the Streamlit run command, so Repl
 ## Security
 
 Never commit API keys, `.env` files, or private credentials to GitHub. Use Replit Secrets or environment variables.
+
+If the Gemini API key is expired, invalid, missing, or out of quota, the app shows a clear `Gemini API key/token expired or invalid` message.

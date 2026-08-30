@@ -24,6 +24,38 @@ CHROMA_PATH = "./chroma_db_gemini"
 BILLING_COLLECTION_NAME = "billing_docs"
 HR_COLLECTION_NAME = "hr_docs"
 
+GEMINI_AUTH_ERROR_MESSAGE = (
+    "Gemini API key/token expired or invalid. "
+    "Please create a new Gemini API key and update GEMINI_API_KEY."
+)
+
+
+def is_gemini_auth_error(error):
+
+    error_text = str(error).lower()
+
+    auth_terms = [
+        "api key",
+        "apikey",
+        "authentication",
+        "authenticate",
+        "unauthenticated",
+        "permission_denied",
+        "permission denied",
+        "invalid_argument",
+        "invalid api key",
+        "expired",
+        "quota",
+        "resource_exhausted",
+        "403",
+        "401",
+    ]
+
+    return any(
+        term in error_text
+        for term in auth_terms
+    )
+
 
 # ============================================================
 # GEMINI API KEY
@@ -952,10 +984,16 @@ Answer:
             error
         )
 
-        answer = (
-            "Sorry, I was unable to generate "
-            "an answer at this time."
-        )
+        if is_gemini_auth_error(error):
+
+            answer = GEMINI_AUTH_ERROR_MESSAGE
+
+        else:
+
+            answer = (
+                "Sorry, I was unable to generate "
+                "an answer at this time."
+            )
 
     print(
         "[GENERATE] Answer generated."
@@ -1067,6 +1105,32 @@ def build_graph():
     )
 
     return app
+
+
+# ============================================================
+# STREAMLIT / UI HELPER
+# ============================================================
+
+def process_question(app, question: str):
+    """
+    Process one question and return the complete LangGraph result.
+
+    This is intended for UI applications such as Streamlit.
+    It reuses the exact same graph and RAG pipeline used by ask().
+    """
+    if not question or not question.strip():
+        return {
+            "question": question,
+            "category": "general",
+            "context": "",
+            "answer": "Please enter a question.",
+        }
+
+    result = app.invoke({
+        "question": question.strip()
+    })
+
+    return result
 
 
 # ============================================================
