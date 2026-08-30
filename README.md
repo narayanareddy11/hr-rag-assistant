@@ -1,6 +1,6 @@
-# HR RAG Assistant
+# Multimodal RAG Dashboard
 
-A beginner-friendly RAG application using LangGraph, ChromaDB, Gemini, and Streamlit.
+A beginner-friendly RAG dashboard for HR and billing documents using Gemini, ChromaDB, LangGraph, and Streamlit, with a lightweight ColPali-ready document/image extraction POC.
 
 ## Architecture
 
@@ -9,9 +9,18 @@ User
   -> Streamlit
   -> LangGraph classifier/router
   -> HR / Billing ChromaDB retrieval
-  -> Gemini 2.5 Flash
+  -> Gemini
   -> Answer
 ```
+
+## Features
+
+- Streamlit chatbot UI for HR, billing, and general questions
+- LangGraph classifier/router for workflow control
+- ChromaDB vector search for HR and billing knowledge-base retrieval
+- Gemini chat model and Gemini embeddings
+- Lightweight document extraction POC for text, Markdown, SVG, and image documents
+- Clear user-facing message for missing, expired, invalid, or quota-limited Gemini credentials
 
 ## Local setup
 
@@ -63,6 +72,22 @@ python document_poc.py
 ```
 
 The POC reads text-like files locally and can use Gemini Vision for `.png`, `.jpg`, `.jpeg`, and `.webp` image documents when `GEMINI_API_KEY` is set. This is a simple image/document extraction demo, not a full ColPali retrieval pipeline.
+
+## CI/CD
+
+GitHub Actions runs a simple CI workflow on pushes and pull requests to `main`.
+
+The workflow:
+
+- installs Python dependencies
+- compiles the Python files
+- runs the document extraction POC smoke test
+
+Workflow file: `.github/workflows/ci.yml`
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE`.
 
 ## Security
 

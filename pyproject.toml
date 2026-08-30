@@ -1,7 +1,7 @@
 [project]
 name = "rag-01"
 version = "0.1.0"
-description = "Gemini, ChromaDB, LangGraph, and Streamlit RAG assistant"
+description = "Multimodal RAG dashboard using Gemini, ChromaDB, LangGraph, Streamlit, and a ColPali-ready document POC"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
