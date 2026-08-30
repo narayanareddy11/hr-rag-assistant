@@ -131,6 +131,11 @@ with st.sidebar:
     st.write(f"**Chat model:** `{rag.GEMINI_MODEL}`")
     st.write(f"**Embedding model:** `{rag.EMBEDDING_MODEL}`")
     st.write(f"**ChromaDB:** `{rag.CHROMA_PATH}`")
+    st.write(f"**LangSmith project:** `{rag.LANGSMITH_PROJECT}`")
+    st.write(
+        "**LangSmith tracing:** "
+        + ("enabled" if rag.LANGSMITH_TRACING_ENABLED else "disabled")
+    )
     st.write("**Image documents:** Gemini Vision POC")
     st.caption("Actual ColPali retrieval is not enabled yet.")
 

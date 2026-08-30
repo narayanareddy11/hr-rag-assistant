@@ -34,3 +34,19 @@ jobs:
       - name: Run document POC smoke test
         run: |
           python document_poc.py --query "annual leave refund onboarding"
+
+      - name: Optional Replit smoke test
+        env:
+          REPLIT_APP_URL: ${{ secrets.REPLIT_APP_URL }}
+          REPLIT_ACCESS_TOKEN: ${{ secrets.REPLIT_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$REPLIT_APP_URL" ]; then
+            echo "REPLIT_APP_URL is not set; skipping Replit smoke test."
+            exit 0
+          fi
+
+          if [ -n "$REPLIT_ACCESS_TOKEN" ]; then
+            curl -fsS -H "Authorization: Bearer $REPLIT_ACCESS_TOKEN" "$REPLIT_APP_URL" >/dev/null
+          else
+            curl -fsS "$REPLIT_APP_URL" >/dev/null
+          fi

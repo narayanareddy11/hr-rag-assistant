@@ -24,6 +24,15 @@ CHROMA_PATH = "./chroma_db_gemini"
 BILLING_COLLECTION_NAME = "billing_docs"
 HR_COLLECTION_NAME = "hr_docs"
 
+LANGSMITH_PROJECT = os.getenv(
+    "LANGSMITH_PROJECT",
+    "multimodal-rag-dashboard",
+)
+LANGSMITH_TRACING_ENABLED = (
+    os.getenv("LANGSMITH_TRACING", "").lower()
+    in {"1", "true", "yes"}
+)
+
 GEMINI_AUTH_ERROR_MESSAGE = (
     "Gemini API key/token expired or invalid. "
     "Please create a new Gemini API key and update GEMINI_API_KEY."

@@ -1,12 +1,13 @@
 [project]
 name = "rag-01"
-version = "0.1.0"
+version = "1.0.0"
 description = "Multimodal RAG dashboard using Gemini, ChromaDB, LangGraph, Streamlit, and a ColPali-ready document POC"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "chromadb==1.5.9",
     "langchain-google-genai>=4.3.5",
+    "langsmith>=0.11.1",
     "langgraph>=1.2.11",
     "streamlit>=1.49.0",
 ]
