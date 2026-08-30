@@ -9,7 +9,7 @@ import streamlit as st
 # ============================================================
 
 st.set_page_config(
-    page_title="Gemini + ChromaDB + LangGraph RAG",
+    page_title="HR & Billing Document RAG Dashboard",
     page_icon="🤖",
     layout="wide",
 )
@@ -92,9 +92,10 @@ def initialize_rag():
 # HEADER
 # ============================================================
 
-st.title("🤖 Gemini + ChromaDB + LangGraph RAG")
+st.title("🤖 HR & Billing Document RAG Dashboard")
 st.caption(
-    "Streamlit UI for the existing working rag-test.py pipeline"
+    "Gemini + ChromaDB + LangGraph with a lightweight "
+    "ColPali-ready document POC"
 )
 
 
@@ -124,6 +125,8 @@ with st.sidebar:
     st.write(f"**Chat model:** `{rag.GEMINI_MODEL}`")
     st.write(f"**Embedding model:** `{rag.EMBEDDING_MODEL}`")
     st.write(f"**ChromaDB:** `{rag.CHROMA_PATH}`")
+    st.write("**Image documents:** Gemini Vision POC")
+    st.caption("Actual ColPali retrieval is not enabled yet.")
 
     st.divider()
 
