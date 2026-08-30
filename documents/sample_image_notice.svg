@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220">
+  <rect width="640" height="220" fill="#ffffff"/>
+  <text x="32" y="70" font-family="Arial" font-size="28" fill="#111111">Employee Onboarding Notice</text>
+  <text x="32" y="125" font-family="Arial" font-size="22" fill="#222222">Submit documents to HR before your start date.</text>
+  <text x="32" y="170" font-family="Arial" font-size="22" fill="#222222">Contact HR for benefits and policy questions.</text>
+</svg>

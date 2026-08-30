@@ -52,6 +52,18 @@ The repository contains a `.replit` file with the Streamlit run command, so Repl
 - Can I get a refund for my annual subscription?
 - What is Kubernetes?
 
+## Document extraction POC
+
+Sample documents live in `documents/`.
+
+Run the lightweight extraction and keyword-search POC:
+
+```bash
+python document_poc.py
+```
+
+The POC reads text-like files locally and can use Gemini Vision for `.png`, `.jpg`, `.jpeg`, and `.webp` image documents when `GEMINI_API_KEY` is set. This is a simple image/document extraction demo, not a full ColPali retrieval pipeline.
+
 ## Security
 
 Never commit API keys, `.env` files, or private credentials to GitHub. Use Replit Secrets or environment variables.
