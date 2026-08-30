@@ -1,4 +1,4 @@
-chromadb
-langgraph
-langchain-google-genai
-streamlit
+chromadb==1.5.9
+langgraph>=1.2.11
+langchain-google-genai>=4.3.5
+streamlit>=1.49.0

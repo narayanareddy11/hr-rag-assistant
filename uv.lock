@@ -2860,7 +2860,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "chromadb", specifier = ">=1.5.9" },
+    { name = "chromadb", specifier = "==1.5.9" },
     { name = "langchain-google-genai", specifier = ">=4.3.5" },
     { name = "langgraph", specifier = ">=1.2.11" },
     { name = "streamlit", specifier = ">=1.49.0" },

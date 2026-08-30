@@ -5,7 +5,7 @@ description = "Gemini, ChromaDB, LangGraph, and Streamlit RAG assistant"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "chromadb>=1.5.9",
+    "chromadb==1.5.9",
     "langchain-google-genai>=4.3.5",
     "langgraph>=1.2.11",
     "streamlit>=1.49.0",
